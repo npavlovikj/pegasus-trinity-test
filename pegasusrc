@@ -1,0 +1,8 @@
+# This tells Pegasus where to find the Site Catalog
+pegasus.catalog.site=XML
+pegasus.catalog.site.file=sites.xml
+
+#pegasus.dir.useTimestamp=true
+pegasus.dir.storage.deep=false
+pegasus.condor.logs.symlink=false
+
