@@ -1,7 +1,8 @@
 # pegasus-trinity-test
 Test Pegasus WMS run for Trinity
+Input data is from https://github.com/trinityrnaseq/trinityrnaseq/tree/master/sample_data/test_Trinity_Assembly
 
 To run:
- - change paths to directories
+ - check paths to directories
  - ./submit.sh
  - output is in "scratch" directory

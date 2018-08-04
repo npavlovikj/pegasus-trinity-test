@@ -11,17 +11,17 @@ cat > sites.xml <<EOF
 <sitecatalog xmlns="http://pegasus.isi.edu/schema/sitecatalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pegasus.isi.edu/schema/sitecatalog http://pegasus.isi.edu/schema/sc-4.0.xsd" version="4.0">
 
     <site  handle="local" arch="x86_64" os="LINUX">
-        <directory type="shared-scratch" path="/work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/work">
-            <file-server operation="all" url="file:///work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/work"/>
+        <directory type="shared-scratch" path="${PWD}/work">
+            <file-server operation="all" url="file://${PWD}/work"/>
         </directory>
-        <directory type="local-storage" path="/work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/scratch">
-            <file-server operation="all" url="file:///work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/scratch"/>
+        <directory type="local-storage" path="${PWD}/scratch">
+            <file-server operation="all" url="file://${PWD}/scratch"/>
         </directory>
     </site>
 
-    <site  handle="local-tusker" arch="x86_64" os="LINUX">
-        <directory type="shared-scratch" path="/work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/out">
-            <file-server operation="all" url="file:///work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity/out"/>
+    <site  handle="local-hcc" arch="x86_64" os="LINUX">
+        <directory type="shared-scratch" path="${PWD}/out">
+            <file-server operation="all" url="file://${PWD}/out"/>
         </directory>
         <profile namespace="pegasus" key="style">glite</profile>
         <profile namespace="condor" key="grid_resource">batch slurm</profile>
@@ -34,4 +34,4 @@ cat > sites.xml <<EOF
 EOF
 
 # plan and submit the workflow
-pegasus-plan --conf pegasusrc --sites local-tusker --output-site local --dir /work/deogun/npavlovikj/MIRA/Pegasus_Code/trinity --dax pipeline.dax --submit
+pegasus-plan --conf pegasusrc --sites local-hcc --output-site local --dir ${PWD} --dax pipeline.dax --submit
