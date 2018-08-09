@@ -10,13 +10,13 @@ dax = ADAG("pipeline")
 base_dir = os.getcwd()
 
 # create read_left input file
-input_read_left = File("reads.left.fa.gz")
-input_read_left.addPFN(PFN("file://" + base_dir + "/reads.left.fa.gz", "local-hcc"))
+input_read_left = File("reads.left.5000.fa")
+input_read_left.addPFN(PFN("file://" + base_dir + "/reads.left.5000.fa", "local-hcc"))
 dax.addFile(input_read_left)
 
 # create read_right input file
-input_read_right = File("reads.right.fa.gz")
-input_read_right.addPFN(PFN("file://" + base_dir + "/reads.right.fa.gz", "local-hcc"))
+input_read_right = File("reads.right.5000.fa")
+input_read_right.addPFN(PFN("file://" + base_dir + "/reads.right.5000.fa", "local-hcc"))
 dax.addFile(input_read_right)
 
 
