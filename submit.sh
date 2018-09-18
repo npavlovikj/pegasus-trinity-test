@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# request_memory is in MBs, the default is 1 GB
+# maxwalltime is in minutes, the default is 1 hour
+
 set -e
 
 # create dax file
@@ -28,6 +31,7 @@ cat > sites.xml <<EOF
         <profile namespace="pegasus" key="queue">batch</profile>
         <profile namespace="env" key="PEGASUS_HOME">/usr</profile>
         <profile namespace="condor" key="request_memory">3000</profile>
+        <profile namespace="globus" key="maxwalltime">120</profile>
         <profile namespace="env" key="PERL5LIB">/util/opt/anaconda/deployed-conda-envs/packages/trinity/envs/trinity-2.4.0/lib/perl5</profile>
     </site>
 
