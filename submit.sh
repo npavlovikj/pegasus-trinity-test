@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# request_memory is in MBs, the default is 1 GB
-# maxwalltime is in minutes, the default is 1 hour
+# totalmemory is in megabytes
+# runtime is in seconds
 
 set -e
 
@@ -25,13 +25,15 @@ cat > sites.xml <<EOF
     <site  handle="local-hcc" arch="x86_64" os="LINUX">
         <directory type="shared-scratch" path="${PWD}/out">
             <file-server operation="all" url="file://${PWD}/out"/>
-        </directory>
+        </directory>        
         <profile namespace="pegasus" key="style">glite</profile>
         <profile namespace="condor" key="grid_resource">batch slurm</profile>
         <profile namespace="pegasus" key="queue">batch</profile>
         <profile namespace="env" key="PEGASUS_HOME">/usr</profile>
-        <profile namespace="condor" key="request_memory">3000</profile>
-        <profile namespace="globus" key="maxwalltime">120</profile>
+        <profile namespace="pegasus" key="runtime">5760</profile>
+        <profile namespace="globus" key="totalmemory">2000</profile>
+        <profile namespace="pegasus" key="cores">2</profile>
+        <profile namespace="pegasus" key="nodes">1</profile>        
         <profile namespace="env" key="PERL5LIB">/util/opt/anaconda/deployed-conda-envs/packages/trinity/envs/trinity-2.4.0/lib/perl5</profile>
     </site>
 
